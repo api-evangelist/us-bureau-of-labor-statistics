@@ -21,6 +21,8 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/us-bureau-of-labor-statistics/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 common:
+  - type: AgenticAccess
+    url: agentic-access/us-bureau-of-labor-statistics-agentic-access.yml
   - type: DomainSecurity
     url: security/us-bureau-of-labor-statistics-domain-security.yml
   - type: Authentication
