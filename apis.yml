@@ -8,9 +8,22 @@ description: >-
   (v1) and registered access with higher limits (v2), returning data in JSON format for integration into applications,
   research tools, and economic dashboards.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/us-bureau-of-labor-statistics.png
 tags:
   - Federal Government
   - Labor Statistics
@@ -30,40 +43,60 @@ common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/bureau-of-labor-statistics
 apis:
-  - aid: us-bureau-of-labor-statistics:bls-public-data-api
-    name: BLS Public Data API
-    description: >-
-      The BLS Public Data API allows developers to programmatically retrieve published historical time series data from
-      all BLS surveys. Version 1 is open without registration; Version 2 requires a free API key and provides higher
-      query limits (500 daily, up to 50 series per request, 20 years of data). The API covers Consumer Price Index
-      (CPI), employment and unemployment statistics, wages, productivity, industry employment, and occupational
-      statistics. Data is returned in JSON format.
-    humanURL: https://www.bls.gov/developers/home.htm
-    baseURL: https://api.bls.gov/publicAPI/v2
-    tags:
-      - Labor Statistics
-      - Employment
-      - Unemployment
-      - Consumer Price Index
-      - Economic Data
-      - Time Series
-      - Open Data
-    properties:
-      - type: Documentation
-        url: https://www.bls.gov/developers/home.htm
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/us-bureau-of-labor-statistics/refs/heads/main/openapi/bls-public-data-api-openapi.yml
-      - type: Registration
-        url: https://data.bls.gov/registrationEngine/
-      - type: TermsOfService
-        url: https://www.bls.gov/developers/termsOfService.htm
-      - type: DataAPI
-        url: https://api.bls.gov/publicAPI/v2/timeseries/data/
-    contact:
-      - FN: BLS Data Support
-        url: https://www.bls.gov/developers/home.htm
-        email: data_staff@bls.gov
+- aid: us-bureau-of-labor-statistics:us-bureau-of-labor-statistics-popular-series-api
+  name: US Bureau of Labor Statistics Popular Series API
+  description: Retrieve the most popular BLS series identifiers
+  humanURL: https://www.bls.gov/developers/home.htm
+  baseURL: https://api.bls.gov/publicAPI/v2
+  tags:
+  - Popular Series
+  properties:
+  - type: OpenAPI
+    url: openapi/us-bureau-of-labor-statistics-popular-series-api-openapi.yml
+  - type: Documentation
+    url: https://www.bls.gov/developers/home.htm
+  - type: Registration
+    url: https://data.bls.gov/registrationEngine/
+  - type: TermsOfService
+    url: https://www.bls.gov/developers/termsOfService.htm
+  - type: DataAPI
+    url: https://api.bls.gov/publicAPI/v2/timeseries/data/
+- aid: us-bureau-of-labor-statistics:us-bureau-of-labor-statistics-surveys-api
+  name: US Bureau of Labor Statistics Surveys API
+  description: Discover and list available BLS surveys
+  humanURL: https://www.bls.gov/developers/home.htm
+  baseURL: https://api.bls.gov/publicAPI/v2
+  tags:
+  - Surveys
+  properties:
+  - type: OpenAPI
+    url: openapi/us-bureau-of-labor-statistics-surveys-api-openapi.yml
+  - type: Documentation
+    url: https://www.bls.gov/developers/home.htm
+  - type: Registration
+    url: https://data.bls.gov/registrationEngine/
+  - type: TermsOfService
+    url: https://www.bls.gov/developers/termsOfService.htm
+  - type: DataAPI
+    url: https://api.bls.gov/publicAPI/v2/timeseries/data/
+- aid: us-bureau-of-labor-statistics:us-bureau-of-labor-statistics-time-series-api
+  name: US Bureau of Labor Statistics Time Series API
+  description: Retrieve time series data for BLS statistical series
+  humanURL: https://www.bls.gov/developers/home.htm
+  baseURL: https://api.bls.gov/publicAPI/v2
+  tags:
+  - Time Series
+  properties:
+  - type: OpenAPI
+    url: openapi/us-bureau-of-labor-statistics-time-series-api-openapi.yml
+  - type: Documentation
+    url: https://www.bls.gov/developers/home.htm
+  - type: Registration
+    url: https://data.bls.gov/registrationEngine/
+  - type: TermsOfService
+    url: https://www.bls.gov/developers/termsOfService.htm
+  - type: DataAPI
+    url: https://api.bls.gov/publicAPI/v2/timeseries/data/
 features:
   - name: Time Series Data Retrieval
     description: Retrieve historical time series data for one or multiple BLS series IDs
