@@ -1,0 +1,18 @@
+{
+  "provider": "us-bureau-of-labor-statistics",
+  "sources": [
+    "us-bureau-of-labor-statistics-popular-series-api-openapi.yml",
+    "us-bureau-of-labor-statistics-surveys-api-openapi.yml",
+    "us-bureau-of-labor-statistics-time-series-api-openapi.yml"
+  ],
+  "outputs": [
+    "us-bureau-of-labor-statistics-popular-series-api-openapi.yml",
+    "us-bureau-of-labor-statistics-surveys-api-openapi.yml",
+    "us-bureau-of-labor-statistics-time-series-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
