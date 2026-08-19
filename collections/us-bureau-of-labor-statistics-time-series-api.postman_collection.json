@@ -1,0 +1,509 @@
+{
+  "item": [
+    {
+      "id": "2f2e7adb-4742-428f-9cda-ff6d6f8d53d4",
+      "name": "Time Series",
+      "description": {
+        "content": "Retrieve time series data for BLS statistical series",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05603bf6-94fd-43f9-879c-bcc30b173913",
+          "name": "Get Multiple Time Series Data",
+          "request": {
+            "name": "Get Multiple Time Series Data",
+            "description": {
+              "content": "Retrieve time series data for one or more BLS series IDs. Version 2 supports up to 50 series per request, date range filtering, optional calculations (net change, percent change), annual averages, and catalog descriptions. Requires a registered API key in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeseries",
+                "data",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"seriesid\": [\n    \"<string>\"\n  ],\n  \"startyear\": \"<string>\",\n  \"endyear\": \"<string>\",\n  \"catalog\": false,\n  \"calculations\": false,\n  \"annualaverage\": false,\n  \"aspects\": false,\n  \"registrationkey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8f4f80b-e750-4b88-96b3-8c6ff7166bac",
+              "name": "Successful time series data response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeseries",
+                    "data",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seriesid\": [\n    \"LNS14000000\"\n  ],\n  \"startyear\": \"2020\",\n  \"endyear\": \"2024\",\n  \"registrationkey\": \"YOUR_API_KEY\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"REQUEST_SUCCEEDED\",\n  \"responseTime\": 78,\n  \"message\": [],\n  \"Results\": {\n    \"series\": [\n      {\n        \"seriesID\": \"LNS14000000\",\n        \"catalog\": {\n          \"series_title\": \"Unemployment Rate\",\n          \"series_id\": \"LNS14000000\",\n          \"seasonality\": \"Seasonally Adjusted\",\n          \"survey_name\": \"Current Population Survey\",\n          \"measure_data_type\": \"Percent\"\n        },\n        \"data\": [\n          {\n            \"year\": \"2024\",\n            \"period\": \"M01\",\n            \"periodName\": \"January\",\n            \"value\": \"3.7\",\n            \"footnotes\": [\n              {\n                \"code\": \"P\",\n                \"text\": \"Preliminary\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acb47ac8-e5e3-4da1-af07-6feb357727af",
+              "name": "Bad request - invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeseries",
+                    "data",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seriesid\": [\n    \"LNS14000000\"\n  ],\n  \"startyear\": \"2020\",\n  \"endyear\": \"2024\",\n  \"registrationkey\": \"YOUR_API_KEY\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"REQUEST_FAILED_ERROR\",\n  \"responseTime\": 7885,\n  \"message\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Results\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "104f82fe-f448-44e0-af6f-58b1e48d1601",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeseries",
+                    "data",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seriesid\": [\n    \"LNS14000000\"\n  ],\n  \"startyear\": \"2020\",\n  \"endyear\": \"2024\",\n  \"registrationkey\": \"YOUR_API_KEY\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"REQUEST_FAILED_ERROR\",\n  \"responseTime\": 7885,\n  \"message\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Results\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12fa28dc-dd38-4b22-ae3c-0d4054f704e9",
+          "name": "Get Single Time Series Data",
+          "request": {
+            "name": "Get Single Time Series Data",
+            "description": {
+              "content": "Retrieve time series data for a single BLS series ID using a GET request. This endpoint works with both v1 and v2. For v2, include the registration key as a query parameter for higher limits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeseries",
+                "data",
+                ":seriesId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "registrationkey",
+                  "value": "<string>",
+                  "description": "Your registered BLS API key (required for v2 higher limits)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startyear",
+                  "value": "<string>",
+                  "description": "Beginning year for data range (4-digit year)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endyear",
+                  "value": "<string>",
+                  "description": "Ending year for data range (4-digit year)"
+                },
+                {
+                  "disabled": false,
+                  "key": "catalog",
+                  "value": "<boolean>",
+                  "description": "Include series catalog/description information in response (v2 only)"
+                },
+                {
+                  "disabled": false,
+                  "key": "calculations",
+                  "value": "<boolean>",
+                  "description": "Include net change and percent change calculations (v2 only)"
+                },
+                {
+                  "disabled": false,
+                  "key": "annualaverage",
+                  "value": "<boolean>",
+                  "description": "Include annual average values (v2 only)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "seriesId",
+                  "description": "(Required) The BLS series identifier (e.g., LNS14000000 for national unemployment rate, CUUR0000SA0 for CPI-U All Items)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bed1cc58-3897-4cb0-af06-ee05d8ba6bb9",
+              "name": "Successful time series data response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeseries",
+                    "data",
+                    ":seriesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "registrationkey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startyear",
+                      "value": "2020"
+                    },
+                    {
+                      "key": "endyear",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "catalog",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "calculations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "annualaverage",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "seriesId",
+                      "description": "(Required) The BLS series identifier (e.g., LNS14000000 for national unemployment rate, CUUR0000SA0 for CPI-U All Items)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"REQUEST_FAILED_ERROR\",\n  \"responseTime\": 3768,\n  \"message\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Results\": {\n    \"series\": [\n      {\n        \"seriesID\": \"LNS14000000\",\n        \"catalog\": {\n          \"series_title\": \"Unemployment Rate\",\n          \"series_id\": \"string\",\n          \"seasonality\": \"Seasonally Adjusted\",\n          \"survey_name\": \"Current Population Survey\",\n          \"survey_abbreviation\": \"LN\",\n          \"measure_data_type\": \"Percent\",\n          \"commerce_industry\": \"string\",\n          \"occupation\": \"string\",\n          \"area\": \"string\"\n        },\n        \"data\": [\n          {\n            \"year\": \"2024\",\n            \"period\": \"M01\",\n            \"periodName\": \"January\",\n            \"value\": \"3.7\",\n            \"footnotes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"calculations\": {\n              \"net_changes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pct_changes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"aspects\": [\n              {\n                \"key_0\": \"string\",\n                \"key_1\": 9339.261630094556\n              },\n              {\n                \"key_0\": 6351.465368858243,\n                \"key_1\": 4841.827481413518,\n                \"key_2\": 1022.4196533348106\n              }\n            ]\n          },\n          {\n            \"year\": \"2024\",\n            \"period\": \"M01\",\n            \"periodName\": \"January\",\n            \"value\": \"3.7\",\n            \"footnotes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"calculations\": {\n              \"net_changes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pct_changes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"aspects\": [\n              {\n                \"key_0\": 3347,\n                \"key_1\": 9761.233135918415\n              },\n              {\n                \"key_0\": false,\n                \"key_1\": \"string\",\n                \"key_2\": 1678\n              }\n            ]\n          }\n        ],\n        \"calculations\": {\n          \"net_changes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"pct_changes\": {\n            \"key_0\": \"string\"\n          }\n        }\n      },\n      {\n        \"seriesID\": \"LNS14000000\",\n        \"catalog\": {\n          \"series_title\": \"Unemployment Rate\",\n          \"series_id\": \"string\",\n          \"seasonality\": \"Seasonally Adjusted\",\n          \"survey_name\": \"Current Population Survey\",\n          \"survey_abbreviation\": \"LN\",\n          \"measure_data_type\": \"Percent\",\n          \"commerce_industry\": \"string\",\n          \"occupation\": \"string\",\n          \"area\": \"string\"\n        },\n        \"data\": [\n          {\n            \"year\": \"2024\",\n            \"period\": \"M01\",\n            \"periodName\": \"January\",\n            \"value\": \"3.7\",\n            \"footnotes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"calculations\": {\n              \"net_changes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pct_changes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"aspects\": [\n              {\n                \"key_0\": \"string\",\n                \"key_1\": 6990.244701911518\n              },\n              {\n                \"key_0\": 9020.215853816475,\n                \"key_1\": 4178.628219134544,\n                \"key_2\": 140,\n                \"key_3\": 6230\n              }\n            ]\n          },\n          {\n            \"year\": \"2024\",\n            \"period\": \"M01\",\n            \"periodName\": \"January\",\n            \"value\": \"3.7\",\n            \"footnotes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"calculations\": {\n              \"net_changes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pct_changes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"aspects\": [\n              {\n                \"key_0\": 5894\n              },\n              {\n                \"key_0\": \"string\",\n                \"key_1\": 6682.518136488426\n              }\n            ]\n          }\n        ],\n        \"calculations\": {\n          \"net_changes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"pct_changes\": {\n            \"key_0\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3d795ea-0e75-45d2-8c4a-a2ba1b6cbb94",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeseries",
+                    "data",
+                    ":seriesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "registrationkey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startyear",
+                      "value": "2020"
+                    },
+                    {
+                      "key": "endyear",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "catalog",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "calculations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "annualaverage",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "seriesId",
+                      "description": "(Required) The BLS series identifier (e.g., LNS14000000 for national unemployment rate, CUUR0000SA0 for CPI-U All Items)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"REQUEST_FAILED_ERROR\",\n  \"responseTime\": 7885,\n  \"message\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Results\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68de6963-c717-4854-9aeb-ea1a28ca2877",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeseries",
+                    "data",
+                    ":seriesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "registrationkey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startyear",
+                      "value": "2020"
+                    },
+                    {
+                      "key": "endyear",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "catalog",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "calculations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "annualaverage",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "seriesId",
+                      "description": "(Required) The BLS series identifier (e.g., LNS14000000 for national unemployment rate, CUUR0000SA0 for CPI-U All Items)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"REQUEST_FAILED_ERROR\",\n  \"responseTime\": 7885,\n  \"message\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Results\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bls.gov/publicAPI/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b1719f51-53be-4ad8-9be4-f652f1301a56",
+    "name": "BLS Public Data Popular Series Time Series API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bureau of Labor Statistics (BLS) Public Data API allows developers to retrieve published historical time series data from all BLS surveys. Version 2 requires a free API registration key and provides higher query limits: up to 500 daily queries, 50 series per request, and 20 years of data. The API covers Consumer Price Index (CPI), employment and unemployment statistics, wages, productivity, industry employment, and occupational statistics.\n\nContact Support:\n Name: BLS Developer Support\n Email: data_staff@bls.gov",
+      "type": "text/plain"
+    }
+  }
+}
