@@ -25,6 +25,11 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/us-bureau-of-labor-statistics.png
 tags:
+  - Federal-Government
+  - Labor Statistics
+  - Economic Data
+  - Open Data
+tags_raw:
   - Federal Government
   - Labor Statistics
   - Economic Data
