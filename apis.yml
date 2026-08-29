@@ -8,6 +8,18 @@ description: >-
   (v1) and registered access with higher limits (v2), returning data in JSON format for integration into applications,
   research tools, and economic dashboards.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
