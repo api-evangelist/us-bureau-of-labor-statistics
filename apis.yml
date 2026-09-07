@@ -52,6 +52,20 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/us-bureau-of-labor-statistics/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 common:
+  - type: Website
+    url: https://www.bls.gov/
+  - type: Documentation
+    url: https://www.bls.gov/developers/
+  - type: GettingStarted
+    url: https://www.bls.gov/developers/home.htm
+  - type: PrivacyPolicy
+    url: https://www.bls.gov/bls/bls-privacy.htm
+  - type: FAQ
+    url: https://www.bls.gov/developers/api_faqs.htm
+  - type: SpectralRules
+    url: https://raw.githubusercontent.com/api-evangelist/u-s-bureau-of-labor-statistics/refs/heads/main/rules/bls-public-data-api-rules.yml
+  - type: Vocabulary
+    url: https://raw.githubusercontent.com/api-evangelist/u-s-bureau-of-labor-statistics/refs/heads/main/vocabulary/u-s-bureau-of-labor-statistics-vocabulary.yaml
   - type: AgenticAccess
     url: agentic-access/us-bureau-of-labor-statistics-agentic-access.yml
   - type: DomainSecurity

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: BLS Public Data Popular Series Surveys API
   description: 'The Bureau of Labor Statistics (BLS) Public Data API allows developers to retrieve published historical time series data from all BLS surveys. Version 2 requires a free API registration key and provides higher query limits: up to 500 daily queries, 50 series per request, and 20 years of data. The API covers Consumer Price Index (CPI), employment and unemployment statistics, wages, productivity, industry employment, and occupational statistics.'
@@ -91,23 +91,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    SurveyDetail:
-      type: object
-      properties:
-        survey_abbreviation:
-          type: string
-        survey_name:
-          type: string
-        popular_series:
-          type: array
-          items:
-            type: object
-            properties:
-              seriesID:
-                type: string
-              series_title:
-                type: string
-    SurveysResponse:
+    SurveyDetailResponse:
       type: object
       properties:
         status:
@@ -124,7 +108,23 @@ components:
             survey:
               type: array
               items:
-                $ref: '#/components/schemas/Survey'
+                $ref: '#/components/schemas/SurveyDetail'
+    SurveyDetail:
+      type: object
+      properties:
+        survey_abbreviation:
+          type: string
+        survey_name:
+          type: string
+        popular_series:
+          type: array
+          items:
+            type: object
+            properties:
+              seriesID:
+                type: string
+              series_title:
+                type: string
     ErrorResponse:
       type: object
       properties:
@@ -154,7 +154,7 @@ components:
           type: string
           description: Full name of the BLS survey program
           example: Consumer Price Index - All Urban Consumers
-    SurveyDetailResponse:
+    SurveysResponse:
       type: object
       properties:
         status:
@@ -171,7 +171,7 @@ components:
             survey:
               type: array
               items:
-                $ref: '#/components/schemas/SurveyDetail'
+                $ref: '#/components/schemas/Survey'
   securitySchemes:
     ApiKey:
       type: apiKey

@@ -13,6 +13,11 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "us-bureau-of-labor-statistics-popular-series-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "us-bureau-of-labor-statistics-surveys-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "us-bureau-of-labor-statistics-time-series-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
