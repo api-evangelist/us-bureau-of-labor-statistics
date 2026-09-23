@@ -1,9 +1,7 @@
 {
   "provider": "us-bureau-of-labor-statistics",
   "sources": [
-    "us-bureau-of-labor-statistics-popular-series-api-openapi.yml",
-    "us-bureau-of-labor-statistics-surveys-api-openapi.yml",
-    "us-bureau-of-labor-statistics-time-series-api-openapi.yml"
+    "_original/bls-public-data-api-openapi.yml"
   ],
   "outputs": [
     "us-bureau-of-labor-statistics-popular-series-api-openapi.yml",
@@ -14,10 +12,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "us-bureau-of-labor-statistics-popular-series-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "us-bureau-of-labor-statistics-surveys-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "us-bureau-of-labor-statistics-time-series-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bls-public-data-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "us-bureau-of-labor-statistics-popular-series-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "us-bureau-of-labor-statistics-surveys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "us-bureau-of-labor-statistics-time-series-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
